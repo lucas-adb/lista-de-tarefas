@@ -1,4 +1,4 @@
-const btnCreateTask = document.querySelector('#criar-tarefa');
+const btnCreateTask = document.querySelector('#criar-btn');
 const inputTextTask = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btnClearList = document.querySelector('#apaga-tudo');
@@ -13,6 +13,7 @@ const textToTask = () => {
     const task = inputTextTask.value;
     const li = document.createElement('li');
     li.innerText = task;
+    li.innerHTML = `${task}<button>x</button>`;
     taskList.appendChild(li);
     inputTextTask.value = '';
   });
@@ -20,25 +21,25 @@ const textToTask = () => {
 
 textToTask();
 
-function deselect(li) {
-  const allTask = taskList.children;
-  for (let index = 0; index < allTask.length; index += 1) {
-    if (allTask[index] !== li) {
-      allTask[index].style.backgroundColor = '#F8F8F8';
-    }
-  }
-}
+// function deselect(li) {
+//   const allTask = taskList.children;
+//   for (let index = 0; index < allTask.length; index += 1) {
+//     if (allTask[index] !== li) {
+//       allTask[index].style.backgroundColor = '#F8F8F8';
+//     }
+//   }
+// }
 
-const changeBackgroundColor = () => {
-  taskList.addEventListener('click', (event) => {
-    if (event.target.tagName === 'LI') {
-      const li = event.target;
-      // li.style.backgroundColor = 'gray';
-      li.style.backgroundColor = '#EEFF01'; 
-      deselect(li);
-    }
-  });
-};
+// const changeBackgroundColor = () => {
+//   taskList.addEventListener('click', (event) => {
+//     if (event.target.tagName === 'LI') {
+//       const li = event.target;
+//       // li.style.backgroundColor = 'gray';
+//       li.style.backgroundColor = '#EEFF01'; 
+//       deselect(li);
+//     }
+//   });
+// };
 
 changeBackgroundColor();
 

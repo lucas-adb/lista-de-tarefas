@@ -13,24 +13,25 @@
 </head>
 
 <body>
-    <header>
-        <h1>Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
     <main>
-        <div id="criar-container">
+        <h1>Lista de Tarefas</h1>
+        <div id="input-container">
             <input type="text" id="texto-tarefa">
-            <button id="criar-tarefa">Criar</button>
+            <button id="criar-btn">Criar</button>
         </div>
-        <ol id="lista-tarefas"></ol>
-        <div id="container-btn">
+        <ul id="lista-tarefas">
+            <li>Levar minha vó no jiu jitsu<button>x</button></li>
+            <li>Descobrir o segredo do universo<button>x</button></li>
+            <li>Comprar pão de queijo<button>x</button></li>
+        </ul>
+        <!-- <div id="container-btn">
             <button id="apaga-tudo">Limpar Lista</button>
             <button id="remover-finalizados">Limpar Finalizados</button>
             <button id="salvar-tarefas">Salvar Lista</button>
             <button id="mover-cima">Mover para cima</button>
             <button id="mover-baixo">Mover para baixo</button>
             <button id="remover-selecionado">Remover selecionado</button>
-        </div>
+        </div> -->
     </main>
 </body>
 <script src="script.js"></script>
