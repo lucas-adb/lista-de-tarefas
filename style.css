@@ -1,0 +1,64 @@
+body , input , button {
+  font-family: segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: rgb(247 , 247 , 247);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  max-width: 720px;
+}
+
+button {
+  background-color: rgb(248 , 248 , 248);
+  color: 050402;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid rgb(5 , 4 , 2);
+  cursor: pointer;
+  padding: 1px 2px;
+  width: 115px;
+  height: 50px;
+  font-weight: 700;
+  margin-right: 18px;
+}
+
+button:hover {
+  background-color: rgb(5 , 4 , 2);
+  color: rgb(247 , 247 , 247);
+  border: 2px solid rgb(5 , 4 , 2);
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: xx-large;
+}
+
+#texto-tarefa {
+  background-color: rgb(247 , 247 , 247);
+  color: 050402;
+  border: 2px solid rgb(5 , 4 , 2);
+  padding: 1px 20px;
+  width: 72%;
+  height: 44px;
+  /* font-weight: 700; */
+}
+
+.completed {
+  text-decoration: line-through solid rgb(5 , 4 , 2);
+}
+
+#container-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#criar-container {
+  display: flex;
+  justify-content: space-between;
+}
