@@ -12,9 +12,12 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background-image: url("/imgs/absurd.design\ -\ Chapter\ 1\ -\ 07.png");
+  background-position: center;
 }
 
 main {
+  background-color: rgb(247 , 247 , 247);
   border: 2px solid rgb(5 , 4 , 2);
   width: 100%;
   height: auto;
@@ -22,6 +25,8 @@ main {
   max-width: 600px;
   min-width: 300px;
   padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
 }
 
 #input-container {
