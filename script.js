@@ -45,6 +45,49 @@ document.querySelectorAll('.delete-btn').forEach(item => {
 
 deleteTask();
 
+const clearList = () => {
+    const completed = document.querySelectorAll('li');
+    completed.forEach((item) => item.remove());
+    // taskList.replaceChildren();
+};
+
+btnClearList.addEventListener('click', () => {
+  clearList();
+});
+
+const saveList = () => {
+  btnSaveList.addEventListener('click', () => {
+    const allLi = document.querySelectorAll('li');
+    const arrayLi = [];
+    for (let index = 0; index < allLi.length; index += 1) {
+      arrayLi.push(allLi[index].innerHTML);
+    }
+    // console.log(arrayLi);
+    localStorage.setItem('listSaved', JSON.stringify(arrayLi));
+  });
+};
+
+saveList();
+
+let getListSaved = [];
+
+if (localStorage.getItem('listSaved')) {
+  getListSaved = JSON.parse(localStorage.getItem('listSaved'));
+  const completed = document.querySelectorAll('li');
+  completed.forEach((item) => item.remove());
+}
+
+const loadSaved = () => {
+  for (let index = 0; index < getListSaved.length; index += 1) {
+    const li = document.createElement('li');
+    const task = getListSaved[index];
+    li.innerHTML = task;
+    taskList.appendChild(li);
+    }
+  };
+
+loadSaved();
+
 // function deselect(li) {
 //   const allTask = taskList.children;
 //   for (let index = 0; index < allTask.length; index += 1) {
@@ -81,15 +124,6 @@ deleteTask();
 
 // taskCompleted();
 
-// const clearList = () => {
-//   btnClearList.addEventListener('click', () => {
-//     const completed = document.querySelectorAll('li');
-//     completed.forEach((item) => item.remove());
-//     // taskList.replaceChildren();
-//   });
-// };
-
-// clearList();
 
 // const clearDone = () => {
 //   btnClearDone.addEventListener('click', () => {
@@ -99,20 +133,6 @@ deleteTask();
 // };
 
 // clearDone();
-
-// const saveList = () => {
-//   btnSaveList.addEventListener('click', () => {
-//     const allLi = document.querySelectorAll('li');
-//     const arrayLi = [];
-//     for (let index = 0; index < allLi.length; index += 1) {
-//       arrayLi.push(allLi[index].innerHTML);
-//     }
-//     console.log(arrayLi);
-//     localStorage.setItem('listSaved', JSON.stringify(arrayLi));
-//   });
-// };
-
-// saveList();
 
 // const saveClass = () => {
 //   btnSaveList.addEventListener('click', () => {
@@ -130,29 +150,6 @@ deleteTask();
 // };
 
 // saveClass();
-
-// let getListSaved = [];
-// let getClassSaved = [];
-
-// if (localStorage.getItem('listSaved') && localStorage.getItem('classSaved')) {
-//   getListSaved = JSON.parse(localStorage.getItem('listSaved'));
-//   getClassSaved = JSON.parse(localStorage.getItem('classSaved'));
-// }
-
-// const loadSaved = () => {
-//   for (let index = 0; index < getListSaved.length; index += 1) {
-//     const li = document.createElement('li');
-//     const task = getListSaved[index];
-//     li.innerHTML = task;
-//     const allClass = getClassSaved[index];
-//     if (allClass === 'completed') {
-//       li.classList.add('completed');
-//     }
-//     taskList.appendChild(li);
-//   }
-// };
-
-// loadSaved();
 
 // const moveUp = () => {
 //   btnMoveUp.addEventListener('click', () => {

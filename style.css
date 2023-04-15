@@ -1,5 +1,7 @@
-body , input , button {
-  font-family: segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+body , input {
+  /* font-family: segoe UI, Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }
 
 body {
@@ -25,6 +27,7 @@ main {
 #input-container {
   display: flex;
   justify-content: space-between;
+  gap: 12px;
 }
 
 #texto-tarefa {
@@ -47,11 +50,11 @@ main {
   padding: 1px 2px;
   height: 50px;
   font-weight: 700;
-  margin-left: 12px;
+  /* margin-left: 12px; */
   flex-grow: 1;
 }
 
-#criar-btn:hover {
+#criar-btn:hover, #container-btn button:hover {
   background-color: rgb(5 , 4 , 2);
   color: rgb(247 , 247 , 247);
   border: 2px solid rgb(5 , 4 , 2);
@@ -108,11 +111,21 @@ li:hover {
   background-color: #EEFF01;
 }
 
-/* #funcionamento {
-  margin-top: 5px;
-} */
-
-/* #container-btn {
+#container-btn {
   display: flex;
-  justify-content: center;
-} */
+  justify-content: space-between;
+  gap: 12px;
+}
+
+#container-btn button {
+  background-color: rgb(247 , 247 , 247);
+  color: 050402;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid rgb(5 , 4 , 2);
+  cursor: pointer;
+  padding: 1px 2px;
+  height: 50px;
+  font-weight: 700;
+  flex-grow: 1;
+}
