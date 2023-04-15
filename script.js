@@ -7,32 +7,40 @@ const btnSaveList = document.querySelector('#salvar-tarefas');
 const btnMoveUp = document.querySelector('#mover-cima');
 const btnMoveDown = document.querySelector('#mover-baixo');
 const btnRemove = document.querySelector('#remover-selecionado');
+const deleteBTN = document.querySelector('.delete-btn');
 
-const textToTask = () => {
-  btnCreateTask.addEventListener('click', () => {
-    const task = inputTextTask.value;
-    const li = document.createElement('li');
-    li.innerText = task;
-    li.innerHTML = `${task}<button class='delete-btn'>x</button>`;
-    taskList.appendChild(li);
-    inputTextTask.value = '';
-    deleteTask();
+const createTask = () => {
+  const task = inputTextTask.value;
+  const li = document.createElement('li');
+  li.innerText = task;
+  li.innerHTML = `${task}<button class='delete-btn'>x</button>`;
+  taskList.appendChild(li);
+  inputTextTask.value = '';
+  deleteTask();
+}
+
+const clickCriar = () => btnCreateTask
+  .addEventListener('click', () => createTask() )
+
+clickCriar();
+
+const pressEnter = () => {
+  inputTextTask.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      createTask();
+    }
   });
 };
 
-textToTask();
-
-const deleteBTN = document.querySelector('.delete-btn');
+pressEnter();
 
 const deleteTask = () => {
-
 document.querySelectorAll('.delete-btn').forEach(item => {
   item.addEventListener('click', event => {
     const li = (event.target).parentElement;
     li.remove();
   })
 });
-
 };
 
 deleteTask();
