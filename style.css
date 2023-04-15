@@ -54,7 +54,7 @@ main {
   flex-grow: 1;
 }
 
-#criar-btn:hover, #container-btn button:hover {
+#criar-btn:hover {
   background-color: rgb(5 , 4 , 2);
   color: rgb(247 , 247 , 247);
   border: 2px solid rgb(5 , 4 , 2);
@@ -128,4 +128,9 @@ li:hover {
   height: 50px;
   font-weight: 700;
   flex-grow: 1;
+}
+
+#container-btn button:hover {
+  background-color: #EEFF01;
+  border: 2px solid rgb(5 , 4 , 2);
 }

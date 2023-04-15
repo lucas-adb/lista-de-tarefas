@@ -88,112 +88,57 @@ const loadSaved = () => {
 
 loadSaved();
 
-// function deselect(li) {
-//   const allTask = taskList.children;
-//   for (let index = 0; index < allTask.length; index += 1) {
-//     if (allTask[index] !== li) {
-//       allTask[index].style.backgroundColor = '#F8F8F8';
-//     }
-//   }
-// }
+const markSelected = () => {
+  taskList.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+      const li = event.target;
+      li.style.backgroundColor = '#EEFF01'; 
+      deselect(li);
+    }
+  });
+};
 
-// const changeBackgroundColor = () => {
-//   taskList.addEventListener('click', (event) => {
-//     if (event.target.tagName === 'LI') {
-//       const li = event.target;
-//       // li.style.backgroundColor = 'gray';
-//       li.style.backgroundColor = '#EEFF01'; 
-//       deselect(li);
-//     }
-//   });
-// };
+markSelected();
 
-// changeBackgroundColor();
+function deselect(li) {
+  const allTask = taskList.children;
+  for (let index = 0; index < allTask.length; index += 1) {
+    if (allTask[index] !== li) {
+      allTask[index].style.backgroundColor = '#F8F8F8';
+    }
+  }
+}
 
-// const taskCompleted = () => {
-//   taskList.addEventListener('dblclick', (event) => {
-//     const li = event.target;
-//     const liClassList = event.target.classList;
-//     if (event.target.tagName === 'LI' && !liClassList.contains('completed')) {
-//       li.classList.add('completed');
-//     } else if (event.target.tagName === 'LI' && liClassList.contains('completed')) {
-//       li.classList.remove('completed');
-//     }
-//   });
-// };
+const moveUp = () => {
+  btnMoveUp.addEventListener('click', () => {
+    const allTask = taskList.children;
+    for (let index = 1; index < allTask.length; index += 1) {
+      if (allTask[index].style.backgroundColor === 'rgb(238, 255, 1)') {
+        taskList.insertBefore(allTask[index], allTask[index - 1]);
+      }
+    }
+  });
+};
 
-// taskCompleted();
+moveUp();
 
+const moveDown = () => {
+  btnMoveDown.addEventListener('click', () => {
+    const allTask = taskList.children;
+    for (let index = 0; index < allTask.length - 1; index += 1) {
+      const current = allTask[index];
+      const nextElement = current.nextElementSibling;
+      if (nextElement && isSelected(current)) {
+        taskList.insertBefore(nextElement, current);
+        break;
+      }
+    }
+  });
+};
 
-// const clearDone = () => {
-//   btnClearDone.addEventListener('click', () => {
-//     const completed = document.querySelectorAll('.completed');
-//     completed.forEach((item) => item.remove());
-//   });
-// };
+moveDown();
 
-// clearDone();
-
-// const saveClass = () => {
-//   btnSaveList.addEventListener('click', () => {
-//     const allLi = document.querySelectorAll('li');
-//     const arrayClass = [];
-//     for (let index = 0; index < allLi.length; index += 1) {
-//       if (allLi[index].classList.contains('completed')) {
-//         arrayClass.push('completed');
-//       } else {
-//         arrayClass.push('todo');
-//       }
-//     }
-//     localStorage.setItem('classSaved', JSON.stringify(arrayClass));
-//   });
-// };
-
-// saveClass();
-
-// const moveUp = () => {
-//   btnMoveUp.addEventListener('click', () => {
-//     const allTask = taskList.children;
-//     for (let index = 1; index < allTask.length; index += 1) {
-//       if (allTask[index].style.backgroundColor === 'gray') {
-//         taskList.insertBefore(allTask[index], allTask[index - 1]);
-//       }
-//     }
-//   });
-// };
-
-// moveUp();
-
-// const isBgGray = (task) => {
-//   const result = task.style.backgroundColor === 'gray';
-//   return result;
-// };
-
-// const moveDown = () => {
-//   btnMoveDown.addEventListener('click', () => {
-//     const allTask = taskList.children;
-//     for (let index = 0; index < allTask.length - 1; index += 1) {
-//       const current = allTask[index];
-//       const nextElement = current.nextElementSibling;
-//       if (nextElement && isBgGray(current)) {
-//         taskList.insertBefore(nextElement, current);
-//         break;
-//       }
-//     }
-//   });
-// };
-
-// moveDown();
-
-// const removeSelected = () => {
-//   btnRemove.addEventListener('click', () => {
-//     const allTask = taskList.children;
-//     for (let index = 0; index < allTask.length; index += 1) {
-//       if (isBgGray(allTask[index])) {
-//         allTask[index].remove();
-//       }
-//     }
-//   });
-// };
-
-// removeSelected();
+const isSelected = (task) => {
+  const result = task.style.backgroundColor === 'rgb(238, 255, 1)';
+  return result;
+};
