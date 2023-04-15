@@ -13,7 +13,7 @@ const createTask = () => {
   const task = inputTextTask.value;
   const li = document.createElement('li');
   li.innerText = task;
-  li.innerHTML = `${task}<button class='delete-btn'>x</button>`;
+  li.innerHTML = `${task}<button class='delete-btn'>✕</button>`;
   taskList.appendChild(li);
   inputTextTask.value = '';
   deleteTask();
