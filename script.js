@@ -82,6 +82,7 @@ const loadSaved = () => {
     const li = document.createElement('li');
     const task = getListSaved[index];
     li.innerHTML = task;
+    li.draggable = true;
     taskList.appendChild(li);
     }
   };
@@ -142,3 +143,36 @@ const isSelected = (task) => {
   const result = task.style.backgroundColor === 'rgb(238, 255, 1)';
   return result;
 };
+
+// Adiciona a feature drag/drop
+
+// Get the list element
+// var list = document.getElementById('lista-tarefas');
+
+// Add event listeners for drag and drop events
+taskList.addEventListener('dragstart', function(event) {
+  // Set the dragged item's data and add a 'dragging' class
+  event.dataTransfer.setData('text/plain', event.target.textContent);
+  event.target.classList.add('dragging');
+});
+
+taskList.addEventListener('dragover', function(event) {
+  // Prevent the default behavior to allow drop
+  event.preventDefault();
+});
+
+taskList.addEventListener('drop', function(event) {
+  // Prevent the default behavior to allow drop
+  event.preventDefault();
+
+  // Remove the 'dragging' class from the dragged item
+  let draggingItem = taskList.querySelector('.dragging');
+  draggingItem.classList.remove('dragging');
+
+  // Insert the dragged item before the drop target
+  let dropTarget = event.target;
+  if (event.target.tagName === 'LI') {
+    dropTarget = event.target.parentNode;
+  }
+  dropTarget.insertBefore(draggingItem, event.target);
+});
