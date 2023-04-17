@@ -31,6 +31,8 @@ main {
   max-width: 600px;
   min-width: 300px;
   padding: 10px 30px;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 #input-container {
@@ -141,4 +143,27 @@ h1 {
 #container-btn button:hover {
   background-color: var(--todo-yellow);
   border: 2px solid var(--todo-black);
+}
+
+#space {
+  height: 270px;
+}
+
+#creditos {
+  margin-bottom: 21px;
+}
+
+#creditos p {
+  margin: 5px;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: underline;
+  color: var(--todo-black);
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: var(--todo-yellow);
 }
