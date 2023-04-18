@@ -8,28 +8,33 @@
     <title>Minha Lista de Tarefas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/32ba63164d.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <h1>Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
     <main>
-        <div id="criar-container">
+        <h1>Lista de Tarefas</h1>
+        <div id="input-container">
             <input type="text" id="texto-tarefa">
-            <button id="criar-tarefa">Criar</button>
+            <button id="criar-btn">Criar</button>
         </div>
-        <ol id="lista-tarefas"></ol>
+        <ul id="lista-tarefas">
+            <li draggable="true">Levar minha vó no jiu jitsu<button class='delete-btn'>✕</button></li>
+            <li draggable="true">Descobrir o segredo do universo<button class='delete-btn'>✕</button></li>
+            <li draggable="true">Comprar pão de queijo<button class='delete-btn'>✕</button></li>
+        </ul>
         <div id="container-btn">
-            <button id="apaga-tudo">Limpar Lista</button>
-            <button id="remover-finalizados">Limpar Finalizados</button>
-            <button id="salvar-tarefas">Salvar Lista</button>
-            <button id="mover-cima">Mover para cima</button>
-            <button id="mover-baixo">Mover para baixo</button>
-            <button id="remover-selecionado">Remover selecionado</button>
+            <button id="apaga-tudo"><i class="fa-solid fa-trash fa-lg" style="color: #050402;"></i></button>
+            <button id="salvar-tarefas"><i class="fa-solid fa-floppy-disk fa-lg" style="color: #050402;"></i></button>
+            <button id="mover-cima"><i class="fa-solid fa-chevron-up fa-lg" style="color: #050402;"></i></button>
+            <button id="mover-baixo"><i class="fa-solid fa-chevron-down fa-lg" style="color: #050402;"></i></button>
+        </div>
+        <div id="space"></div>
+        <div id="creditos">
+            <p>Feito por <a href="https://github.com/lucas-adb">Lucas Alves</a></p>
+            <p>Ilustração de <a href="absurd.design">absurd.design</a></p>
         </div>
     </main>
 </body>
