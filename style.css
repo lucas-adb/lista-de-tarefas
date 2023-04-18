@@ -63,6 +63,7 @@ main {
   font-weight: 700;
   /* margin-left: 12px; */
   flex-grow: 1;
+  caret-color: transparent;
 }
 
 #criar-btn:hover {
@@ -147,6 +148,7 @@ h1 {
 
 #space {
   height: 270px;
+  caret-color: transparent;
 }
 
 #creditos {
