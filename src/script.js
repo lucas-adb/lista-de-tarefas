@@ -1,3 +1,5 @@
+import 'src/style.css';
+
 const btnCreateTask = document.querySelector('#criar-btn');
 const inputTextTask = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
