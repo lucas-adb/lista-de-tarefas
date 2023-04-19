@@ -1,0 +1,26 @@
+{
+  "name": "to-do-list-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite --open",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-adb/lista-de-tarefas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucas-adb/lista-de-tarefas/issues"
+  },
+  "homepage": "https://github.com/lucas-adb/lista-de-tarefas#readme",
+  "dependencies": {
+    "vite": "^4.2.2"
+  },
+  "type": "module"
+}
