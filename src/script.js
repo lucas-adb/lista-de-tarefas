@@ -1,4 +1,4 @@
-import 'src/style.css';
+import 'style.css';
 
 const btnCreateTask = document.querySelector('#criar-btn');
 const inputTextTask = document.querySelector('#texto-tarefa');
