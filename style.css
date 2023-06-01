@@ -27,7 +27,7 @@ input {
   min-height: 100vh;
   background-image: url("/imgs/absurd.design\ -\ Chapter\ 1\ -\ 07.png");
   background-position: center;
-  padding: 0 150px;
+  padding: 0 9rem;
 }
 
 main {
@@ -35,26 +35,30 @@ main {
   border: 2px solid var(--todo-black);
   width: 100%;
   height: auto;
-  min-height: 720px;
-  max-width: 600px;
-  min-width: 300px;
-  padding: 10px 30px;
+  min-height: 45rem;
+  max-width: 37.5rem;
+  min-width: 18.75rem;
+  padding: 0.625rem 1.875rem;
   /* display: flex;
   flex-direction: column; */
+  /* min-height: 720px;
+  max-width: 600px;
+  min-width: 300px; */
 }
 
 #input-container {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
+  margin-bottom: 1.875rem;
 }
 
 #texto-tarefa {
   background-color: var(--todo-white);
   color: var(--todo-black);
-  border: 2px solid var(--todo-black);
-  /* padding: 1px 20px; */
-  height: 44px;
+  border: 0.125rem solid var(--todo-black);
+  padding: 0.063rem 1.25rem;
+  height: 2.75rem;
   /* flex-grow: 2; */
   width: 454px;
   min-width: 100px;
@@ -66,28 +70,28 @@ main {
   color: var(--todo-black);
   text-decoration: none;
   text-align: center;
-  border: 2px solid var(--todo-black);
+  border: 0.125rem solid var(--todo-black);
   cursor: pointer;
-  /* padding: 1px 2px; */
-  height: 50px;
+  padding: 0.063rem 0.125rem;
+  height: 3.125rem;
   font-weight: 700;
   /* margin-left: 12px; */
   /* flex-grow: 1; */
-  min-width: 133px;
+  min-width: 8.313rem;
   caret-color: transparent;
 }
 
 #criar-btn:hover {
   background-color: var(--todo-black);
   color: var(--todo-white);
-  border: 2px solid var(--todo-black);
+  border: 0.125rem solid var(--todo-black);
 }
 
 h1 {
   font-family: "Poppins", sans-serif;
   text-align: center;
   font-size: xx-large;
-  margin-bottom: 25px;
+  margin-bottom: 1.563rem;
 }
 
 #lista-tarefas {
@@ -104,7 +108,7 @@ h1 {
   align-items: center;
   cursor: grab;
   text-align: left;
-  margin-bottom: 5px;
+  margin-bottom: 0.313rem;
   list-style: none;
 }
 
@@ -122,10 +126,10 @@ h1 {
   color: var(--todo-white);
   text-decoration: none;
   text-align: center;
-  border: 2px solid var(--todo-white);
+  border: 0.125rem solid var(--todo-white);
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 1.875rem;
+  height: 1.875rem;
   caret-color: transparent;
 }
 
@@ -136,38 +140,39 @@ h1 {
 #container-btn {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
+  margin-top: 1.875rem;
 }
 
 #container-btn button {
   background-color: var(--todo-white);
-  color: 050402;
+  color: var(--todo-black);
   text-decoration: none;
   text-align: center;
-  border: 2px solid var(--todo-black);
+  border: 0.125rem solid var(--todo-black);
   cursor: pointer;
-  padding: 1px 2px;
-  height: 50px;
+  padding: 0.063rem 0.125rem;
+  height: 3.125rem;
   font-weight: 700;
   flex-grow: 1;
 }
 
 #container-btn button:hover {
   background-color: var(--todo-yellow);
-  border: 2px solid var(--todo-black);
+  border: 0.125rem solid var(--todo-black);
 }
 
 #space {
-  height: 270px;
+  height: 16.875rem;
   caret-color: transparent;
 }
 
 #creditos {
-  margin-bottom: 21px;
+  margin-bottom: 1.313rem;
 }
 
 #creditos p {
-  margin: 5px;
+  margin: 0.313rem;
   margin-bottom: 0;
 }
 
