@@ -24,7 +24,7 @@ input {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("/imgs/absurd.design\ -\ Chapter\ 1\ -\ 07.png");
+  background-image: url("imgs/absurdbg.png");
   background-position: center;
   padding: 0 9rem;
 }
