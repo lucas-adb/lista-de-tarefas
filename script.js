@@ -1,3 +1,4 @@
+// elementos capturados
 const btnCreateTask = document.querySelector('#criar-btn');
 const inputTextTask = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
@@ -9,22 +10,24 @@ const btnMoveDown = document.querySelector('#mover-baixo');
 const btnRemove = document.querySelector('#remover-selecionado');
 const deleteBTN = document.querySelector('.delete-btn');
 
+// funções e eventos
 const createTask = () => {
   const task = inputTextTask.value;
   const li = document.createElement('li');
-  li.innerText = task;
+  // li.innerText = task;
   li.innerHTML = `${task}<button class='delete-btn'>✕</button>`;
   taskList.appendChild(li);
   inputTextTask.value = '';
-  deleteTask();
+  // precisa passar o deleteTask() para que o botão consiga deletar a lista
+  addDeleteEvent();
 }
 
-const clickCriar = () => btnCreateTask
+const BtnCreateTaskEvent = () => btnCreateTask
   .addEventListener('click', () => createTask() )
 
-clickCriar();
+  BtnCreateTaskEvent();
 
-const pressEnter = () => {
+const SetEnterToCreateTask = () => {
   inputTextTask.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
       createTask();
@@ -32,10 +35,11 @@ const pressEnter = () => {
   });
 };
 
-pressEnter();
+SetEnterToCreateTask();
 
-const deleteTask = () => {
-document.querySelectorAll('.delete-btn').forEach(item => {
+const addDeleteEvent = () => {
+const allDeleteBtns = document.querySelectorAll('.delete-btn');
+allDeleteBtns.forEach(item => {
   item.addEventListener('click', event => {
     const li = (event.target).parentElement;
     li.remove();
@@ -43,17 +47,23 @@ document.querySelectorAll('.delete-btn').forEach(item => {
 });
 };
 
-deleteTask();
+addDeleteEvent();
 
 const clearList = () => {
-    const completed = document.querySelectorAll('li');
-    completed.forEach((item) => item.remove());
+    const allTasks = document.querySelectorAll('li');
+    allTasks.forEach((item) => item.remove());
     // taskList.replaceChildren();
 };
 
-btnClearList.addEventListener('click', () => {
-  clearList();
-});
+const btnClearListEvent = () => {
+  btnClearList.addEventListener('click', () => {
+    clearList();
+  });
+}
+
+btnClearListEvent();
+
+// salvar e recuperar listas no localStorage
 
 const saveList = () => {
   btnSaveList.addEventListener('click', () => {
@@ -69,12 +79,15 @@ const saveList = () => {
 
 saveList();
 
+// pega a lista a cada refresh
+
 let getListSaved = [];
 
 if (localStorage.getItem('listSaved')) {
   getListSaved = JSON.parse(localStorage.getItem('listSaved'));
-  const completed = document.querySelectorAll('li');
-  completed.forEach((item) => item.remove());
+  // remove as 3 tarefas padrões no arquivo HTML
+  const defaultTasks = document.querySelectorAll('li');
+  defaultTasks.forEach((item) => item.remove());
 }
 
 const loadSaved = () => {
@@ -84,7 +97,8 @@ const loadSaved = () => {
     li.innerHTML = task;
     li.draggable = true;
     taskList.appendChild(li);
-    }
+  }
+    addDeleteEvent();
   };
 
 loadSaved();
@@ -93,24 +107,24 @@ const markSelected = () => {
   taskList.addEventListener('click', (event) => {
     if (event.target.tagName === 'LI') {
       const li = event.target;
-      li.style.backgroundColor = '#EEFF01'; 
-      deselect(li);
+      li.style.backgroundColor = 'rgb(238, 255, 1)'; 
+      deselectTask(li);
     }
   });
 };
 
 markSelected();
 
-function deselect(li) {
+const deselectTask = (li) => {
   const allTask = taskList.children;
   for (let index = 0; index < allTask.length; index += 1) {
     if (allTask[index] !== li) {
-      allTask[index].style.backgroundColor = '#F8F8F8';
+      allTask[index].style.backgroundColor = 'rgb(247 , 247 , 247)';
     }
   }
 }
 
-const moveUp = () => {
+const moveTaskUp = () => {
   btnMoveUp.addEventListener('click', () => {
     const allTask = taskList.children;
     for (let index = 1; index < allTask.length; index += 1) {
@@ -121,9 +135,9 @@ const moveUp = () => {
   });
 };
 
-moveUp();
+moveTaskUp();
 
-const moveDown = () => {
+const moveTaskDown = () => {
   btnMoveDown.addEventListener('click', () => {
     const allTask = taskList.children;
     for (let index = 0; index < allTask.length - 1; index += 1) {
@@ -137,7 +151,7 @@ const moveDown = () => {
   });
 };
 
-moveDown();
+moveTaskDown();
 
 const isSelected = (task) => {
   const result = task.style.backgroundColor === 'rgb(238, 255, 1)';
@@ -145,9 +159,6 @@ const isSelected = (task) => {
 };
 
 // Adiciona a feature drag/drop
-
-// Get the list element
-// var list = document.getElementById('lista-tarefas');
 
 // Add event listeners for drag and drop events
 taskList.addEventListener('dragstart', function(event) {
@@ -157,22 +168,54 @@ taskList.addEventListener('dragstart', function(event) {
 });
 
 taskList.addEventListener('dragover', function(event) {
-  // Prevent the default behavior to allow drop
+  // Prevent the default behavior to disallow drop
   event.preventDefault();
 });
 
 taskList.addEventListener('drop', function(event) {
-  // Prevent the default behavior to allow drop
   event.preventDefault();
 
-  // Remove the 'dragging' class from the dragged item
   let draggingItem = taskList.querySelector('.dragging');
   draggingItem.classList.remove('dragging');
 
-  // Insert the dragged item before the drop target
   let dropTarget = event.target;
-  if (event.target.tagName === 'LI') {
-    dropTarget = event.target.parentNode;
+  if (event.target.tagName === 'UL') {
+    dropTarget = event.target.lastElementChild;
+  } else if (event.target.tagName === 'LI') {
+    dropTarget = event.target;
   }
-  dropTarget.insertBefore(draggingItem, event.target);
+
+  const nextSibling = dropTarget.nextElementSibling;
+  if (nextSibling === draggingItem) {
+    taskList.insertBefore(draggingItem, dropTarget);
+  } else {
+    taskList.insertBefore(draggingItem, nextSibling);
+  }
 });
+
+
+
+
+// taskList.addEventListener('drop', function(event) {
+//   // Prevent the default behavior to open dragged item as a link
+//   event.preventDefault();
+
+//   // Remove the 'dragging' class from the dragged item
+//   let draggingItem = taskList.querySelector('.dragging');
+//   draggingItem.classList.remove('dragging');
+
+//   // Insert the dragged item before the drop target
+//   let dropTarget = event.target;
+//   if (event.target.tagName === 'UL') {
+//     dropTarget = event.target.lastElementChild;
+//   } 
+//   else if (event.target.tagName === 'LI') {
+//     dropTarget = event.target;
+//   }
+//   dropTarget.insertBefore(draggingItem, event.target);
+// });
+
+// let dropTarget = event.target;
+// if (event.target.tagName === 'LI') {
+//   dropTarget = event.target.parentNode;
+// }
