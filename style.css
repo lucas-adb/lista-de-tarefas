@@ -26,7 +26,7 @@ input {
   min-height: 100vh;
   background-image: url("imgs/absurdbg.png");
   background-position: center;
-  padding: 0 9rem;
+  padding: 1.5rem 9rem;
 }
 
 main {
@@ -127,7 +127,7 @@ h1 {
   text-align: center;
   border: 0.125rem solid var(--todo-white);
   cursor: pointer;
-  width: 1.875rem;
+  min-width: 1.875rem;
   height: 1.875rem;
   caret-color: transparent;
 }
@@ -186,7 +186,7 @@ a:hover {
 }
 
 
-@media (max-width: 400px)
+@media (max-width: 450px)
 {
   #input-container
    {
