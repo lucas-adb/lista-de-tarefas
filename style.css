@@ -1,16 +1,23 @@
 :root {
-  --todo-white: rgb(247 , 247 , 247);
-  --todo-black: rgb(5 , 4 , 2);
+  --todo-white: rgb(247, 247, 247);
+  --todo-black: rgb(5, 4, 2);
   --todo-yellow: rgb(238, 255, 1);
 }
 
-body , input {
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+body,
+input {
   /* font-family: segoe UI, Tahoma, Geneva, Verdana, sans-serif; */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
-body {
+.wrapper {
   background-color: var(--todo-white);
   text-align: center;
   display: flex;
@@ -20,6 +27,7 @@ body {
   min-height: 100vh;
   background-image: url("/imgs/absurd.design\ -\ Chapter\ 1\ -\ 07.png");
   background-position: center;
+  padding: 0 150px;
 }
 
 main {
@@ -43,26 +51,29 @@ main {
 
 #texto-tarefa {
   background-color: var(--todo-white);
-  color: 050402;
+  color: var(--todo-black);
   border: 2px solid var(--todo-black);
-  padding: 1px 20px;
+  /* padding: 1px 20px; */
   height: 44px;
-  flex-grow: 2;
+  /* flex-grow: 2; */
+  width: 454px;
+  min-width: 100px;
 }
 
 #criar-btn {
   /* background-color: rgb(248 , 248 , 248); */
   background-color: rgb(238, 255, 1);
-  color: 050402;
+  color: var(--todo-black);
   text-decoration: none;
   text-align: center;
   border: 2px solid var(--todo-black);
   cursor: pointer;
-  padding: 1px 2px;
+  /* padding: 1px 2px; */
   height: 50px;
   font-weight: 700;
   /* margin-left: 12px; */
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  min-width: 133px;
   caret-color: transparent;
 }
 
@@ -73,7 +84,7 @@ main {
 }
 
 h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   font-size: xx-large;
   margin-bottom: 25px;
