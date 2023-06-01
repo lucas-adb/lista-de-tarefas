@@ -88,14 +88,15 @@ saveList();
 
 let getListSaved = [];
 
-if (localStorage.getItem("listSaved")) {
-  getListSaved = JSON.parse(localStorage.getItem("listSaved"));
-  // remove as 3 tarefas padrões no arquivo HTML
-  const defaultTasks = document.querySelectorAll("li");
-  defaultTasks.forEach((item) => item.remove());
-}
-
 const loadSaved = () => {
+
+  if (localStorage.getItem("listSaved")) {
+    getListSaved = JSON.parse(localStorage.getItem("listSaved"));
+    // remove as 3 tarefas padrões no arquivo HTML
+    const defaultTasks = document.querySelectorAll("li");
+    defaultTasks.forEach((item) => item.remove());
+  }
+
   for (let index = 0; index < getListSaved.length; index += 1) {
     const li = document.createElement("li");
     const task = getListSaved[index];
@@ -107,6 +108,26 @@ const loadSaved = () => {
 };
 
 loadSaved();
+
+// if (localStorage.getItem("listSaved")) {
+//   getListSaved = JSON.parse(localStorage.getItem("listSaved"));
+//   // remove as 3 tarefas padrões no arquivo HTML
+//   // const defaultTasks = document.querySelectorAll("li");
+//   // defaultTasks.forEach((item) => item.remove());
+// }
+
+// const loadSaved = () => {
+//   for (let index = 0; index < getListSaved.length; index += 1) {
+//     const li = document.createElement("li");
+//     const task = getListSaved[index];
+//     li.innerHTML = task;
+//     li.draggable = true;
+//     taskList.appendChild(li);
+//   }
+//   addDeleteEvent();
+// };
+
+// loadSaved();
 
 const markSelected = () => {
   taskList.addEventListener("click", (event) => {
