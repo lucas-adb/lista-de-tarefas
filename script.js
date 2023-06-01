@@ -22,15 +22,15 @@ const createTask = () => {
   addDeleteEvent();
 };
 
+const preventDropOnInput = () =>
+  inputTextTask.addEventListener("drop", (event) => event.preventDefault());
+
+preventDropOnInput();
+
 const BtnCreateTaskEvent = () =>
   btnCreateTask.addEventListener("click", () => createTask());
 
 BtnCreateTaskEvent();
-
-const avoidDragoverOnInput = () =>
-  inputTextTask.addEventListener("drop", (event) => event.preventDefault());
-
-avoidDragoverOnInput();
 
 const SetEnterToCreateTask = () => {
   inputTextTask.addEventListener("keypress", (event) => {
@@ -198,27 +198,3 @@ taskList.addEventListener("drop", function (event) {
     taskList.insertBefore(draggingItem, nextSibling);
   }
 });
-
-// taskList.addEventListener('drop', function(event) {
-//   // Prevent the default behavior to open dragged item as a link
-//   event.preventDefault();
-
-//   // Remove the 'dragging' class from the dragged item
-//   let draggingItem = taskList.querySelector('.dragging');
-//   draggingItem.classList.remove('dragging');
-
-//   // Insert the dragged item before the drop target
-//   let dropTarget = event.target;
-//   if (event.target.tagName === 'UL') {
-//     dropTarget = event.target.lastElementChild;
-//   }
-//   else if (event.target.tagName === 'LI') {
-//     dropTarget = event.target;
-//   }
-//   dropTarget.insertBefore(draggingItem, event.target);
-// });
-
-// let dropTarget = event.target;
-// if (event.target.tagName === 'LI') {
-//   dropTarget = event.target.parentNode;
-// }

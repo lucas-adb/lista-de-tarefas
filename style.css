@@ -12,7 +12,6 @@
 
 body,
 input {
-  /* font-family: segoe UI, Tahoma, Geneva, Verdana, sans-serif; */
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
@@ -60,8 +59,8 @@ main {
   padding: 0.063rem 1.25rem;
   height: 2.75rem;
   /* flex-grow: 2; */
-  width: 454px;
-  min-width: 100px;
+  width: 28.375rem;
+  min-width: 6.25rem;
 }
 
 #criar-btn {
@@ -184,4 +183,18 @@ a {
 a:hover {
   text-decoration: none;
   background-color: var(--todo-yellow);
+}
+
+
+@media (max-width: 400px)
+{
+  #input-container
+   {
+    flex-direction: column;
+   }
+
+   #texto-tarefa
+   {
+    width: auto;
+   }
 }
